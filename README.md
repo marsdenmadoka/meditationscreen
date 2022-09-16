@@ -6,7 +6,7 @@ An Android app built using using jetpack compose
 ## Screenshoots
 These are the app's screenshots:
 
-<img src="screenshoots/IMG_20220916_190654_302.jpg" width= 250/>
+<img src="screenshoots/screenshot1.jpg" width= 250/>
 
  
 ## Tech Stack
