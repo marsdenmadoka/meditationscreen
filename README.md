@@ -1,6 +1,6 @@
 
 An Android app built using using jetpack compose
- this app was created for purpose of creating a jetpack compose UI.you can intergrate the UI to consume your API.
+ this app was created for purpose of creating a jetpack compose UI.you can integrate the UI to consume your API.
 
 
 ## Screenshoots
