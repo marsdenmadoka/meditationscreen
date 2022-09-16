@@ -144,5 +144,4 @@ fun CurrentMeditation(color: Color = LightRed) {
 
 @Composable
 fun FeatureSection(){
-
 }
