@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalFoundationApi::class)
+
 package com.madoka.justcompose.ui
 
 
@@ -22,6 +24,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.madoka.justcompose.Feature
@@ -40,7 +43,38 @@ fun HomeScreen() {
             GreetingsSection()
             ChipSection(chips = listOf("insomia", "depression", "malaria", "insomia", "insomia"))
             CurrentMeditation()
+            FeatureSection(features = listOf(
+                Feature(
+                    title = "Sleep meditation",
+                    R.drawable.ic_headphone,
+                    BlueViolet1,
+                    BlueViolet2,
+                    BlueViolet3
+                ),
+                Feature(
+                    title = "Tips for sleeping",
+                    R.drawable.ic_videocam,
+                    LightGreen1,
+                    LightGreen2,
+                    LightGreen3
+                ),
+                Feature(
+                    title = "Night island",
+                    R.drawable.ic_headphone,
+                    OrangeYellow1,
+                    OrangeYellow2,
+                    OrangeYellow3
+                ),
+                Feature(
+                    title = "Calming sounds",
+                    R.drawable.ic_headphone,
+                    Beige1,
+                    Beige2,
+                    Beige3
+                )
+            ) )
         }
+        
     }
 }
 
@@ -170,6 +204,7 @@ fun FeatureSection(features: List<Feature>) {
         ) {
             items(features.size) {
                 //define how our items look like
+                FeatureItem(feature = features[it])
             }
 
         }
@@ -178,8 +213,9 @@ fun FeatureSection(features: List<Feature>) {
 }
 
 
+//our grid card to be added in feature section
 @Composable
-fun Feature(
+fun FeatureItem(
     feature: Feature
 ) {
     BoxWithConstraints(
@@ -243,16 +279,40 @@ fun Feature(
                 color = feature.lightColor
             )
         }
-        Box(modifier = Modifier
-            .fillMaxSize()
-            .padding(15.dp)
-        ){
-            Text(text = feature.title,
-            style = MaterialTheme.typography.h2,
-            lineHeight = 26.sp,
-            modifier = Modifier)
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(15.dp)
+        ) {
+            Text(
+                text = feature.title,
+                style = MaterialTheme.typography.h2,
+                lineHeight = 26.sp,
+                modifier = Modifier
+            )
+            Icon(
+                painter = painterResource(id = feature.iconId),
+                contentDescription = feature.title,
+                tint = Color.White,
+                modifier = Modifier.align(Alignment.BottomStart)
+            )
+            Text(
+                text = "Start",
+                color = TextWhite,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .clickable {
+                        //Handle the click
+                    }
+                    .align(Alignment.BottomEnd)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(ButtonBlue)
+                    .padding(vertical = 6.dp, horizontal = 15.dp)
+            )
+
         }
-
-
     }
 }
+
+
