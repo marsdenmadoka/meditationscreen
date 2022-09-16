@@ -37,7 +37,7 @@ import com.madoka.mypokedexapp.ui.theme.*
 fun HomeScreen() {
     Box(
         modifier = Modifier
-            .background(TypeDragon)
+            .background(DeepBlue)
             .fillMaxSize()
     ) {
         Column {
@@ -86,8 +86,7 @@ fun HomeScreen() {
                 BottomMenuContent("Music", R.drawable.ic_music),
                 BottomMenuContent("Profile", R.drawable.ic_profile),
             ),
-            modifier = Modifier.align(Alignment.BottomCenter)
-        )
+            modifier = Modifier.align(Alignment.BottomCenter))
     }
 }
 
